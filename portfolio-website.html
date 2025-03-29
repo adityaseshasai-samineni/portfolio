@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aditya Samineni</title>
+        <style>
+            :root {
+                --primary: #3c6e71ff;      /* caribbean-current */
+                --primary-dark: #284b63ff; /* indigo-dye */
+                --secondary: #d9d9d9ff;    /* platinum */
+                --light: #ffffffff;        /* white */
+                --dark: #353535ff;         /* jet */
+                --accent: #3c6e71ff;       /* caribbean-current */
+                --success: #284b63ff;      /* indigo-dye */
+                --highlight: #3c6e71ff;    /* caribbean-current */
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            body {
+                background-color: var(--light);
+                color: var(--dark);
+                line-height: 1.6;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+            
+            header {
+                background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+                color: white;
+                padding: 2rem 0;
+            }
+            
+            .profile {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+            
+            .profile-img {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid white;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+            
+            .profile-info h1 {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .profile-info p {
+                font-size: 1.2rem;
+                opacity: 0.9;
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact {
+                display: flex;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+            
+            .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--light);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+            
+            .contact-item i {
+                font-size: 1.2rem;
+            }
+            .contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+            section {
+                padding: 4rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                position: relative;
+                display: inline-block;
+                color: var(--primary-dark);
+            }
+            
+            .section-title::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -0.5rem;
+                width: 50%;
+                height: 4px;
+                background-color: var(--primary);
+                border-radius: 2px;
+            }
+            
+            .about-content {
+                display: flex;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+            
+            .about-text {
+                flex: 2;
+                min-width: 300px;
+            }
+            
+            .skills {
+                flex: 1;
+                min-width: 300px;
+            }
+            
+            .skill-category {
+                margin-bottom: 1.5rem;
+            }
+            
+            .skill-category h3 {
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+            
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .skill-item {
+                background-color: rgba(60, 110, 113, 0.1);
+                color: var(--primary);
+                padding: 0.4rem 0.8rem;
+                border-radius: 20px;
+                font-size: 0.9rem;
+            }
+            
+            .timeline {
+                position: relative;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .timeline::after {
+                content: '';
+                position: absolute;
+                width: 6px;
+                background-color: rgba(40, 75, 99, 0.3);
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -3px;
+                border-radius: 3px;
+            }
+            
+            .timeline-item {
+                padding: 10px 40px;
+                position: relative;
+                width: 50%;
+                box-sizing: border-box;
+            }
+            
+            .timeline-item::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                border: 4px solid var(--primary);
+                border-radius: 50%;
+                top: 15px;
+                z-index: 1;
+            }
+            
+            .left {
+                left: 0;
+            }
+            
+            .right {
+                left: 50%;
+            }
+            
+            .left::after {
+                right: -10px;
+            }
+            
+            .right::after {
+                left: -10px;
+            }
+            
+            .timeline-content {
+                padding: 1.5rem;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            }
+            
+            .timeline-content h3 {
+                margin-bottom: 0.5rem;
+                color: var(--primary);
+            }
+            
+            .timeline-content .date {
+                font-size: 0.9rem;
+                color: var(--primary-dark);
+                margin-bottom: 1rem;
+                display: block;
+                font-weight: 500;
+            }
+            
+            .projects {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+            
+            .project-card {
+                background-color: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .project-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .project-header {
+                padding: 1.5rem;
+                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+                color: white;
+            }
+            
+            .project-body {
+                padding: 1.5rem;
+            }
+            
+            .project-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 1rem;
+            }
+            
+            .project-tag {
+                background-color: rgba(40, 75, 99, 0.1);
+                color: var(--primary-dark);
+                padding: 0.3rem 0.6rem;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+            
+            .certificates {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+            
+            .certificate-card {
+                background-color: white;
+                border-radius: 8px;
+                padding: 1.5rem;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                flex: 1;
+                min-width: 250px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border-top: 4px solid var(--primary);
+            }
+            
+            .certificate-card h3 {
+                color: var(--primary);
+                margin-bottom: 0.5rem;
+            }
+            
+            .certificate-card .issuer {
+                color: var(--primary-dark);
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            
+            .certificate-card a {
+                display: inline-block;
+                margin-top: 0.75rem;
+                color: var(--primary);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.2s ease;
+            }
+            
+            .certificate-card a:hover {
+                color: var(--primary-dark);
+                text-decoration: underline;
+            }
+            
+            footer {
+                background-color: var(--dark);
+                color: white;
+                padding: 2rem 0;
+                text-align: center;
+            }
+            
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .social-links {
+                display: flex;
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.3s ease;
+            }
+            
+            .social-link:hover {
+                background-color: var(--primary);
+            }
+            
+            @media (max-width: 991px) {
+                .timeline::after {
+                    left: 31px;
+                }
+                
+                .timeline-item {
+                    width: 100%;
+                    padding-left: 70px;
+                    padding-right: 25px;
+                }
+                
+                .timeline-item::after {
+                    left: 21px;
+                }
+                
+                .left::after, .right::after {
+                    left: 21px;
+                }
+                
+                .right {
+                    left: 0;
+                }
+            }
+            
+            @media (max-width: 767px) {
+                .profile {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                
+                .contact {
+                    justify-content: center;
+                }
+                
+                .section-title::after {
+                    left: 25%;
+                    width: 50%;
+                }
+                .contact-item span {
+        display: none;
+    }
+    
+    .contact-item {
+        font-size: 1.4rem;
+        padding: 0.75rem;
+    }
+
+            }
+            @media (max-width: 480px) {
+    .profile-info h1 {
+        font-size: 2rem;
+    }
+    
+    .contact {
+        gap: 0.5rem;
+    }
+}
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQHjtUdIIc5vPA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710390546551?e=1748476800&v=beta&t=Kn8oati3FgY9xb7Sg-MVJaEsbGEetd83tDSbSKpq7w0" alt="Aditya Samineni" class="profile-img">
+                <div class="profile-info">
+                    <h1>Aditya Sesha Sai Samineni</h1>
+                    <p>Software Developer</p>
+                    <div class="contact">
+                        <a href="mailto:sassai2003@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>sassai2003@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/adityaseshasai-samineni" target="_blank" class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>adityaseshasai-samineni</span>
+                        </a>
+                        <a href="https://linkedin.com/in/adityaseshasai-samineni" target="_blank" class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>adityaseshasai-samineni</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning at SRM University, AP. Currently interning at SanDisk (Western Digital), I'm passionate about leveraging AI to solve complex problems and build innovative applications.</p>
+                    <p>With experience in EEG signal processing, machine learning model development, and full-stack web development, I enjoy working on challenging projects that combine my technical skills with creative problem-solving approaches.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">C/C++</span>
+                            <span class="skill-item">Java</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technologies</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Machine Learning</span>
+                            <span class="skill-item">Deep Learning</span>
+                            <span class="skill-item">SQL</span>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">Django</span>
+                            <span class="skill-item">MERN Stack</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Core CS</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Data Structures</span>
+                            <span class="skill-item">Algorithms</span>
+                            <span class="skill-item">OOPs</span>
+                            <span class="skill-item">Operating Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Intern at SanDisk Corporation</h3>
+                        <span class="date">September 2024 - Present | Bengaluru, India</span>
+                        <p>Working with Linux, Python, and Django to develop and maintain software solutions.</p>
+                        <p>Automated testing scenarios for flash drives and SSDs from the user perspective across multiple machines and platforms using Django.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Summer Intern at SRM University, AP</h3>
+                        <span class="date">June 2023 - August 2023 | Amaravati, India</span>
+                        <p>Designed and tested various machine learning models for an EEG-based person authentication system, achieving a 73% accuracy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Person Authentication using EEG-signals</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Built a brain signal-based person authentication system achieving 95% accuracy as part of a research initiative. Investigated the relationship between the number of electrodes, participants, and performance using various machine learning models.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Research</span>
+                            <span class="project-tag">MNE</span>
+                            <span class="project-tag">Scikit-Learn</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Dataset Preprocessor</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Created a user-friendly application with Python, Streamlit, NumPy, and Pandas for dataset pre-processing, removing the need for coding knowledge. Enhanced data handling efficiency with intuitive features for data cleaning, transformation, and preparation.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Streamlit</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">NumPy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>EEG-based Control Prediction</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Conducted extensive data analysis on EEG signals to predict control commands. Used SVM and RandomForest algorithms under varying preprocessing conditions and achieved 87% accuracy.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">SVM</span>
+                            <span class="project-tag">RandomForest</span>
+                            <span class="project-tag">Game Controller</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Personal Finance Management System</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Developed a personal finance management application allowing users to track personal expenses and manage finances. Integrated database operations with application functionalities for seamless expense management and financial tracking.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Swing</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">JDBC</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>E-Commerce App (ECAPP)</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Implemented core features including user authentication, cart functionality, and CRUD operations for products and user management using the MERN stack.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">Express.js</span>
+                            <span class="project-tag">React.js</span>
+                            <span class="project-tag">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>DeepFake Detection (Ongoing)</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Developing a mobile app that can detect deepfake images on-device using EfficientNet-Lite architecture. This is an ongoing capstone project.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Deep Learning</span>
+                            <span class="project-tag">Kotlin</span>
+                            <span class="project-tag">EfficientNet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>B.Tech in Computer Science and Engineering (AI & ML)</h3>
+                        <span class="date">September 2021 - Present</span>
+                        <p><strong>Institution:</strong> SRM University, AP</p>
+                        <p><strong>CGPA:</strong> 9.08*</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Intermediate - MPC</h3>
+                        <span class="date">2019 - 2021</span>
+                        <p><strong>Institution:</strong> BIIT Junior College</p>
+                        <p><strong>Percentage:</strong> 92.4%</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>X - ICSE</h3>
+                        <span class="date">2018 - 2019</span>
+                        <p><strong>Institution:</strong> Loyola Public School</p>
+                        <p><strong>Percentage:</strong> 80%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificates">
+                <div class="certificate-card">
+                    <div>
+                        <h3>Database Management System</h3>
+                        <p>Comprehensive understanding of database design, SQL, and management systems.</p>
+                        <p class="issuer">NPTEL</p>
+                        <a href="https://archive.nptel.ac.in/content/noc/NOC23/SEM2/Ecertificates/106/noc23-cs79/Course/NPTEL23CS79S4408177010022033.pdf" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div>
+                        <h3>Foundation Level in Programming and Data Science</h3>
+                        <p class="issuer">IIT-Madras</p>
+                        <a href="https://app.onlinedegree.iitm.ac.in/document_verification/41f02fb7ba4d73dae2d194372c6e5415618150003511ab15f94bb75379c7d8d6" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div>
+                        <h3>Google Cybersecurity</h3>
+                        <p>Security fundamentals, threat detection, and mitigation strategies.</p>
+                        <p class="issuer">Coursera | Google</p>
+                        <a href="https://www.coursera.org/account/accomplishments/professional-cert/UFENAQM9TA4Z?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div>
+                        <h3>Machine Learning Specialization</h3>
+                        <p>Advanced techniques in supervised and unsupervised learning.</p>
+                        <p class="issuer">Coursera | DeepLearning.ai | Stanford University</p>
+                        <a href="https://www.coursera.org/account/accomplishments/specialization/7DPJPR8SL5RV" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Aditya Sesha Sai Samineni. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to sections smoothly
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
